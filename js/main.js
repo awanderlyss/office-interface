@@ -19,7 +19,6 @@ function currentTime() {
     let westCoast = changeTimezone(date, "America/Tijuana");
     let hh = westCoast.getHours();
     let mm = westCoast.getMinutes();
-    let ss = westCoast.getSeconds();
     let session = "am";
 
     if(hh == 0){
@@ -28,13 +27,12 @@ function currentTime() {
     if(hh > 12){
         hh = hh - 12;
         session = "pm";
-        }
+    }
 
-        hh = (hh < 10) ? "0" + hh : hh;
-        mm = (mm < 10) ? "0" + mm : mm;
-        ss = (ss < 10) ? "0" + ss : ss;
-        
-        let time = hh + " : " + mm + " : " + ss + " " + session;
+    hh = (hh < 10) ? "0" + hh : hh;
+    mm = (mm < 10) ? "0" + mm : mm;
+    
+    let time = hh + " : " + mm + " " + session;
 
     document.getElementById("currentTime").innerHTML = time;
     let t = setTimeout(function(){ currentTime() }, 1000);
